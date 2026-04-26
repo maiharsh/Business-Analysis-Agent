@@ -1,0 +1,35 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: ../deploy/Dockerfile.backend
+    container_name: business-surveillance-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONUNBUFFERED=1
+    volumes:
+      - ./backend:/app
+    command: uvicorn api:app --host 0.0.0.0 --port 8000 --reload
+    networks:
+      - surveillance-network
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: ../deploy/Dockerfile.frontend
+    container_name: business-surveillance-frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - VITE_API_URL=http://backend:8000
+    networks:
+      - surveillance-network
+
+networks:
+  surveillance-network:
+    driver: bridge

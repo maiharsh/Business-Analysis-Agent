@@ -1,0 +1,8 @@
+review_id,product,seller_id,rating,comment
+R001,Wireless Earbuds,SELLER_A,1,Stopped working in 2 days
+R002,Wireless Earbuds,SELLER_A,2,Very poor sound quality
+R003,Wireless Earbuds,SELLER_A,1,Received defective item
+R004,Wireless Earbuds,SELLER_A,2,Not worth the price
+R005,Wireless Earbuds,SELLER_A,1,Battery drains quickly
+R006,Phone Charger,SELLER_B,4,Works fine
+R007,Phone Charger,SELLER_B,5,Good quality
